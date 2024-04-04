@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return choices[randomIndex];
     }
 
+    let playerScore = 0;
+    let computerScore = 0;
+
     document.getElementById("playRound").addEventListener("click", () => {
         const rockRadio = document.getElementById("rockRadio");
         const paperRadio = document.getElementById("paperRadio");
@@ -25,30 +28,31 @@ document.addEventListener("DOMContentLoaded", function () {
             if (scissorsRadio.checked) {
                 playerInput = scissorsRadio.value;
             }
-        }
 
-        computerInput = getComputerChoice();
+            computerInput = getComputerChoice();
 
-        document.getElementById("player").textContent = "Player has chosen: " + playerInput;
-        document.getElementById("computer").textContent = "Computer has chosen: " + computerInput;
+            document.getElementById("player").textContent = "Player has chosen: " + playerInput;
+            document.getElementById("computer").textContent = "Computer has chosen: " + computerInput;
 
-        let playerScore = 0;
-        let computerScore = 0;
-        if (playerInput === computerInput) {
-            return "It's a tie!";
-        } else if (
-            (playerInput === "rock" && computerSelection === "scissors") ||
-            (playerInput === "paper" && computerSelection === "rock") ||
-            (playerInput === "scissors" && computerSelection === "paper")
-        ) {
-            playerScore++;
-            return "You win!";
-        } else {
-            computerScore++;
-            return "You lose!";
+            if (playerInput === computerInput) {
+                return "It's a tie!";
+            } else if (
+                (playerInput === rockRadio.checked && computerSelection === "scissors") ||
+                (playerInput === paperRadio.checked && computerSelection === "rock") ||
+                (playerInput === scissorsRadio.checked && computerSelection === "paper")
+            ) {
+                playerScore++;
+                document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
+                return "You win!";
+            } else {
+                computerScore++;
+                document.getElementById("computerScore").textContent = "Computer Score: " + computerScore;
+                return "You lose!";
+            }
         }
     });
 });
+
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
