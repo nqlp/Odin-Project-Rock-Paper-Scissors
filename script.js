@@ -7,6 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let playerScore = 0;
     let computerScore = 0;
+    
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            console.log(button);
+        });
+    });
 
     document.getElementById("playRound").addEventListener("click", () => {
         const rockRadio = document.getElementById("rockRadio");
@@ -53,12 +60,5 @@ document.addEventListener("DOMContentLoaded", function () {
                 return "You lose!";
             }
         }
-    });
-});
-
-const buttons = document.querySelectorAll("button");
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        console.log(button.id);
     });
 });
