@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("computer").textContent = "Computer has chosen: " + computerInput;
 
             if (playerInput === computerInput) {
+                document.getElementById("winner").textContent = "It's a tie!";
                 return "It's a tie!";
             } else if (
                 (playerInput === rockRadio.checked && computerSelection === "scissors") ||
@@ -43,10 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
                 playerScore++;
                 document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
+                document.getElementById("winner").textContent = "The winner is: You!";
                 return "You win!";
             } else {
                 computerScore++;
                 document.getElementById("computerScore").textContent = "Computer Score: " + computerScore;
+                document.getElementById("winner").textContent = "The winner is: Computer!";
                 return "You lose!";
             }
         }
@@ -56,9 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        const computerSelection = getComputerChoice();
-        const result = playRound(playerSelection, computerSelection);
-        results.textContent = result;
-        console.log(result);
+        console.log(button.id);
     });
 });
