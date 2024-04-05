@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     function getComputerChoice() {
         var choices = ["rock", "paper", "scissors"];
         var randomIndex = Math.floor(Math.random() * choices.length);
