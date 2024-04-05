@@ -38,9 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("winner").textContent = "It's a tie!";
                 return "It's a tie!";
             } else if (
-                (playerInput === rockRadio.checked && computerSelection === "scissors") ||
-                (playerInput === paperRadio.checked && computerSelection === "rock") ||
-                (playerInput === scissorsRadio.checked && computerSelection === "paper")
+                (playerInput === "rock" && computerInput === "scissors") ||
+                (playerInput === "paper" && computerInput === "rock") ||
+                (playerInput === "scissors" && computerInput === "paper")
             ) {
                 playerScore++;
                 document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
