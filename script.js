@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (playerSelection === computerSelection) {
                 document.getElementById("winner").textContent = "It's a tie!";
-                return "It's a tie!";
             } else if (
                 (playerSelection === "rock" && computerSelection === "scissors") ||
                 (playerSelection === "paper" && computerSelection === "rock") ||
@@ -39,13 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
                 document.getElementById("winner").textContent = "The winner is: You!";
                 checkWinner();
-                return "You win!";
             } else {
                 computerScore++;
                 document.getElementById("computerScore").textContent = "Computer Score: " + computerScore;
                 document.getElementById("winner").textContent = "The winner is: Computer!";
                 checkWinner();
-                return "You lose!";
             }
         }
     });
@@ -53,6 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("playAgain").addEventListener("click", () => {
     playRound(playerSelection, computerSelection);
+    checkWinner();
+    playAgainButton.style.display = "none";
+    playRoundButton.style.display = "block";
 });
 
 function getComputerChoice() {
@@ -64,15 +64,7 @@ function getComputerChoice() {
 function checkWinner() {
     if (playerScore === 5) {
         alert("You win the game!");
-        playAgain();
-        var playAgainButton = document.getElementById("playAgainBtn");
-        playAgainButton.style.display = "block";
-        playRound.style.display = "none";
     } else if (computerScore === 5) {
         alert("Computer wins the game!");
-        playAgain();
-        var playAgainButton = document.getElementById("playAgainBtn");
-        playAgainButton.style.display = "block";
-        playRound.style.display = "none";
     }
 }
