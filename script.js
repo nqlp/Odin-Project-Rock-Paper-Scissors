@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const rockRadio = document.getElementById("rockRadio");
     const paperRadio = document.getElementById("paperRadio");
     const scissorsRadio = document.getElementById("scissorsRadio");
-    
+
     let playerScore = 0;
     let computerScore = 0;
 
@@ -65,12 +65,14 @@ function checkWinner() {
     if (playerScore === 5) {
         alert("You win the game!");
         playAgain();
-        var playAgainButton = document.getElementById("playAgain");
+        var playAgainButton = document.getElementById("playAgainBtn");
         playAgainButton.style.display = "block";
+        playRound.style.display = "none";
     } else if (computerScore === 5) {
         alert("Computer wins the game!");
         playAgain();
-        var playAgainButton = document.getElementById("playAgain");
+        var playAgainButton = document.getElementById("playAgainBtn");
         playAgainButton.style.display = "block";
+        playRound.style.display = "none";
     }
 }
