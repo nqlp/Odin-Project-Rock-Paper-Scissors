@@ -1,31 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const rockRadio = document.getElementById("rockRadio");
-    const paperRadio = document.getElementById("paperRadio");
-    const scissorsRadio = document.getElementById("scissorsRadio");
+    // const rockRadio = document.getElementById("rockRadio");
+    // const paperRadio = document.getElementById("paperRadio");
+    // const scissorsRadio = document.getElementById("scissorsRadio");
+    const buttons = document.querySelectorAll(".button-container button");
+    const rockBtn = document.getElementById("rockBtn");
+    const paperBtn = document.getElementById("paperBtn");
+    const scissorsBtn = document.getElementById("scissorsBtn");
 
     let playerScore = 0;
     let computerScore = 0;
 
-    document.getElementById("playRound").addEventListener("click", () => {
-        if (!rockRadio.checked && !paperRadio.checked && !scissorsRadio.checked) {
-            alert("Please select Rock, Paper, or Scissors");
-        }
+    buttons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            playerSelection = e.target.id;
 
-        else {
-            if (rockRadio.checked) {
-                playerSelection = rockRadio.value;
+            if (playerSelection === "rockBtn") {
+                playerSelection = "rock";
             }
-            if (paperRadio.checked) {
-                playerSelection = paperRadio.value;
+
+            else if (playerSelection === "paperBtn") {
+                playerSelection = "paper";
             }
-            if (scissorsRadio.checked) {
-                playerSelection = scissorsRadio.value;
+            else {
+                paperSelection = "scissors";
             }
 
             computerSelection = getComputerChoice();
-
-            document.getElementById("player").textContent = "Player has chosen: " + playerSelection;
-            document.getElementById("computer").textContent = "Computer has chosen: " + computerSelection;
 
             if (playerSelection === computerSelection) {
                 document.getElementById("winner").textContent = "It's a tie!";
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("winner").textContent = "The computer have won!";
                 checkWinner();
             }
-        }
+        });
     });
 
     document.getElementById("playAgainBtn").addEventListener("click", () => {
