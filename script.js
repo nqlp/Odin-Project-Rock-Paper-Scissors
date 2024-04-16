@@ -36,14 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
                 document.getElementById("computerChoice").textContent = computerSelection;
                 checkWinner();
-                document.getElementById("winner").textContent = "The computer. " + `${computerSelection}`.toUpperCase() + " beats " + `${playerSelection}`.toUpperCase();
+                document.getElementById("winner").textContent = "The computer. " + `${computerSelection}`.charAt(0).toUpperCase() + `${computerSelection}`.slice(1) + " beats " + `${playerSelection}`.charAt(0).toUpperCase() + `${playerSelection}`.slice(1);
 
             } else {
                 computerScore++;
                 document.getElementById("computerScore").textContent = "Computer Score: " + computerScore;
                 document.getElementById("computerChoice").textContent = computerSelection;
                 checkWinner();
-                document.getElementById("winner").textContent = "The computer. " + `${computerSelection}`.toUpperCase() + " beats " + `${playerSelection}`.toUpperCase();
+                document.getElementById("winner").textContent = "The computer. " + `${computerSelection}`.charAt(0).toUpperCase() + `${computerSelection}`.slice(1) + " beats " + `${playerSelection}`.charAt(0).toUpperCase() + `${playerSelection}`.slice(1);
 
             }
         });
