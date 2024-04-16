@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // const rockRadio = document.getElementById("rockRadio");
-    // const paperRadio = document.getElementById("paperRadio");
-    // const scissorsRadio = document.getElementById("scissorsRadio");
     const buttons = document.querySelectorAll(".button-container button");
     const rockBtn = document.getElementById("rockBtn");
     const paperBtn = document.getElementById("paperBtn");
@@ -48,7 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("playAgainBtn").addEventListener("click", () => {
-        location.reload();
+        playerScore = 0;
+        computerScore = 0;
+        document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
+        document.getElementById("computerScore").textContent = "Computer Score: " + computerScore;
+        document.getElementById("winner").textContent = "";
+        rockBtn.disabled = false;
+        paperBtn.disabled = false;
+        scissorsBtn.disabled = false;
     });
 
     function getComputerChoice() {
@@ -60,8 +64,16 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkWinner() {
         if (playerScore === 5) {
             alert("You win the game!");
+            disableBtn();
         } else if (computerScore === 5) {
             alert("Computer wins the game!");
+            disableBtn();
         }
+    }
+
+    function disableBtn() {
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
     }
 });
