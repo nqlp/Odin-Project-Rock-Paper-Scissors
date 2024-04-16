@@ -36,35 +36,32 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 playerScore++;
                 document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
-                document.getElementById("winner").textContent = "The winner is: You!";
+                document.getElementById("winner").textContent = "You have won!";
                 checkWinner();
             } else {
                 computerScore++;
                 document.getElementById("computerScore").textContent = "Computer Score: " + computerScore;
-                document.getElementById("winner").textContent = "The winner is: Computer!";
+                document.getElementById("winner").textContent = "The computer have won!";
                 checkWinner();
             }
         }
     });
-});
 
-document.getElementById("playAgain").addEventListener("click", () => {
-    playRound(playerSelection, computerSelection);
-    checkWinner();
-    playAgainButton.style.display = "none";
-    playRoundButton.style.display = "block";
-});
+    document.getElementById("playAgainBtn").addEventListener("click", () => {
+        location.reload();
+    });
 
-function getComputerChoice() {
-    var choices = ["rock", "paper", "scissors"];
-    var randomIndex = Math.floor(Math.random() * choices.length);
-    return choices[randomIndex];
-}
-
-function checkWinner() {
-    if (playerScore === 5) {
-        alert("You win the game!");
-    } else if (computerScore === 5) {
-        alert("Computer wins the game!");
+    function getComputerChoice() {
+        var choices = ["rock", "paper", "scissors"];
+        var randomIndex = Math.floor(Math.random() * choices.length);
+        return choices[randomIndex];
     }
-}
+
+    function checkWinner() {
+        if (playerScore === 5) {
+            alert("You win the game!");
+        } else if (computerScore === 5) {
+            alert("Computer wins the game!");
+        }
+    }
+});
