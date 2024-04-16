@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (playerSelection === computerSelection) {
                 document.getElementById("winner").textContent = "It's a tie!";
+                document.getElementById("computerChoice").textContent = computerSelection;
             } else if (
                 (playerSelection === "rock" && computerSelection === "scissors") ||
                 (playerSelection === "paper" && computerSelection === "rock") ||
@@ -33,13 +34,17 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 playerScore++;
                 document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
-                document.getElementById("winner").textContent = "You have won!";
+                document.getElementById("computerChoice").textContent = computerSelection;
                 checkWinner();
+                document.getElementById("winner").textContent = "The computer. " + `${computerSelection}`.toUpperCase() + " beats " + `${playerSelection}`.toUpperCase();
+
             } else {
                 computerScore++;
                 document.getElementById("computerScore").textContent = "Computer Score: " + computerScore;
-                document.getElementById("winner").textContent = "The computer have won!";
+                document.getElementById("computerChoice").textContent = computerSelection;
                 checkWinner();
+                document.getElementById("winner").textContent = "The computer. " + `${computerSelection}`.toUpperCase() + " beats " + `${playerSelection}`.toUpperCase();
+
             }
         });
     });
