@@ -11,9 +11,15 @@
 <body>
     <script src="script.js"></script>
     <h1>Rock - Paper - Scissors</h1>
-    <button id="playRound"> Play a round</button>
 
-    <p id="player"> Player: <span id="playerChoice"> </span> <label>
+    <p> Choose between rock, paper and scissors: </p>
+    <div class="button-container">
+        <button id="rockBtn"> Rock</button>
+        <button id="paperBtn"> Paper</button>
+        <button id="scissorsBtn"> Scissors</button>
+    </div>
+
+    <!-- <label>
             <input type="radio" id="rockRadio" name="choice" value="rock"> Rock
         </label>
         <label>
@@ -21,10 +27,11 @@
         </label>
         <label>
             <input type="radio" id="scissorsRadio" name="choice" value="scissors"> Scissors
-        </label>
+        </label> -->
     </p>
 
     <p id="computer"> Computer: <span id="computerChoice"> </span></p>
+
     <div id="results"> Results
         <p id="winner">The Winner is: </p>
         <p id="playerScore"> Player Score: 0</p>
