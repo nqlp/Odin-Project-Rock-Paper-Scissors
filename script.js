@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
             else if (playerSelection === "paperBtn") {
                 playerSelection = "paper";
             }
-            else {
-                paperSelection = "scissors";
+            else if (playerSelection === "scissorsBtn") {
+                playerSelection = "scissors";
             }
 
             computerSelection = getComputerChoice();
