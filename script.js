@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 playerScore++;
                 document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
                 document.getElementById("computerChoice").textContent = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
-                document.getElementById("winner").textContent = "You. 🎉 " + `${playerSelection}`.charAt(0).toUpperCase() + `${playerSelection}`.slice(1) + " beats " + `${computerSelection}`.charAt(0).toUpperCase() + `${computerSelection}`.slice(1)+ ".";
+                document.getElementById("winner").textContent = "You. 🎉 " + `${playerSelection}`.charAt(0).toUpperCase() + `${playerSelection}`.slice(1) + " beats " + `${computerSelection}`.charAt(0).toUpperCase() + `${computerSelection}`.slice(1) + ".";
                 checkWinner();
 
             } else {
