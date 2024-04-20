@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (playerSelection === computerSelection) {
                 document.getElementById("winner").textContent = "It's a tie!";
-                document.getElementById("computerChoice").textContent = computerSelection;
+                document.getElementById("computerChoice").textContent = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
             } else if (
                 (playerSelection === "rock" && computerSelection === "scissors") ||
                 (playerSelection === "paper" && computerSelection === "rock") ||
@@ -34,14 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 playerScore++;
                 document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
-                document.getElementById("computerChoice").textContent = computerSelection;
+                document.getElementById("computerChoice").textContent = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
                 document.getElementById("winner").textContent = "You. 🎉 " + `${playerSelection}`.charAt(0).toUpperCase() + `${playerSelection}`.slice(1) + " beats " + `${computerSelection}`.charAt(0).toUpperCase() + `${computerSelection}`.slice(1)+ ".";
                 checkWinner();
 
             } else {
                 computerScore++;
                 document.getElementById("computerScore").textContent = "Computer Score: " + computerScore;
-                document.getElementById("computerChoice").textContent = computerSelection;
+                document.getElementById("computerChoice").textContent = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
                 document.getElementById("winner").textContent = "The computer. " + `${computerSelection}`.charAt(0).toUpperCase() + `${computerSelection}`.slice(1) + " beats " + `${playerSelection}`.charAt(0).toUpperCase() + `${playerSelection}`.slice(1) + ".";
                 checkWinner();
 
