@@ -1,1 +1,1 @@
-# Odin-Project-Rock-Paper-Scissors
+# Tbe Odin Project - Rock-Paper-Scissors
