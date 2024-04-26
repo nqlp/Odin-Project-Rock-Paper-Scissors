@@ -18,14 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
             else if (playerSelection === "paperBtn") {
                 playerSelection = "paper";
             }
-            else {
-                paperSelection = "scissors";
+            else if (playerSelection === "scissorsBtn") {
+                playerSelection = "scissors";
             }
 
             computerSelection = getComputerChoice();
 
             if (playerSelection === computerSelection) {
                 document.getElementById("winner").textContent = "It's a tie!";
+                document.getElementById("computerChoice").textContent = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
             } else if (
                 (playerSelection === "rock" && computerSelection === "scissors") ||
                 (playerSelection === "paper" && computerSelection === "rock") ||
@@ -33,13 +34,17 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 playerScore++;
                 document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
-                document.getElementById("winner").textContent = "You have won!";
+                document.getElementById("computerChoice").textContent = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+                document.getElementById("winner").textContent = "You. 🎉 " + `${playerSelection}`.charAt(0).toUpperCase() + `${playerSelection}`.slice(1) + " beats " + `${computerSelection}`.charAt(0).toUpperCase() + `${computerSelection}`.slice(1) + ".";
                 checkWinner();
+
             } else {
                 computerScore++;
                 document.getElementById("computerScore").textContent = "Computer Score: " + computerScore;
-                document.getElementById("winner").textContent = "The computer have won!";
+                document.getElementById("computerChoice").textContent = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+                document.getElementById("winner").textContent = "The computer. " + `${computerSelection}`.charAt(0).toUpperCase() + `${computerSelection}`.slice(1) + " beats " + `${playerSelection}`.charAt(0).toUpperCase() + `${playerSelection}`.slice(1) + ".";
                 checkWinner();
+
             }
         });
     });
